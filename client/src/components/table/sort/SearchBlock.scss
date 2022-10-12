@@ -1,0 +1,30 @@
+.search-block-container {
+  margin-bottom: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+
+  .input-style {
+    font-weight: 400;
+    color: rgb(125, 206, 139);
+    background-color: rgb(17, 16, 16);
+    border: 1px solid rgb(125, 206, 139);
+    border-radius: 8px;
+    padding: 5px 10px;
+    outline: 2px solid transparent;
+    transition: 0.5s ease-in;
+    width: 100%;
+
+    &:focus {
+      outline: 2 px solid rgb(113, 96, 132);
+    }
+  }
+  .input-style:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  .rows-quantity {
+    max-width: 70px;
+  }
+
+}
