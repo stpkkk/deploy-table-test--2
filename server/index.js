@@ -7,12 +7,16 @@ const pool = require("./db");
 //middleware
 app.use(cors());
 app.use(express.json()); //req.body
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + "/public"));
 
 //ROUTES//
 
 //create a clients
-
+app.all("/*", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
 app.post("/delivery", async (req, res) => {
   try {
     console.log(req.body); //чтобы увидеть через postman
