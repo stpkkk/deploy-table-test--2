@@ -7,6 +7,7 @@ const pool = require("./db");
 //middleware
 app.use(cors());
 app.use(express.json()); //req.body
+app.use(express.static(__dirname + '/public'));
 
 //ROUTES//
 
