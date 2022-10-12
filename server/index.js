@@ -37,7 +37,7 @@ app.post("/delivery", async (req, res) => {
     console.log(req.body); //чтобы увидеть через postman
     const { id } = req.body;
     const newTodo = await pool.query(
-      "INSERT INTO delivery (date, client_name, quantity) VALUES($1) RETURNING * ",
+      "INSERT INTO delivery (date, name, quantity, distance) VALUES($1) RETURNING * ",
       [id]
     );
 
