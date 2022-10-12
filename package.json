@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "start": "cd server && npm start ",
-    "dev": "nodemon index.js"
+    "start": "cd server && npm start "
   },
   "dependencies": {
     "moment": "^2.29.4",
