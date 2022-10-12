@@ -12,7 +12,7 @@ app.use(express.json()); //req.body
 
 //create a clients
 
-app.post("delivery", async (req, res) => {
+app.post("/delivery", async (req, res) => {
   try {
     console.log(req.body); //чтобы увидеть через postman
     const { id } = req.body;
@@ -29,7 +29,7 @@ app.post("delivery", async (req, res) => {
 
 //get all clients
 
-app.get("delivery", async (req, res) => {
+app.get("/delivery", async (req, res) => {
   try {
     const allTodos = await pool.query("SELECT * FROM delivery");
     res.json(allTodos.rows);
@@ -40,7 +40,7 @@ app.get("delivery", async (req, res) => {
 
 //get a client
 
-app.get("delivery/:id", async (req, res) => {
+app.get("/delivery/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const delivery = await pool.query(
@@ -57,7 +57,7 @@ app.get("delivery/:id", async (req, res) => {
 
 //update a client
 
-app.put("delivery/:id", async (req, res) => {
+app.put("/delivery/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { description } = req.body;
@@ -75,7 +75,7 @@ app.put("delivery/:id", async (req, res) => {
 
 //delete a client
 
-app.delete("delivery/:id", async (req, res) => {
+app.delete("/delivery/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const deleteTodo = await pool.query(
