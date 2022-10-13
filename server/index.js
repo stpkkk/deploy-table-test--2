@@ -9,6 +9,12 @@ app.use(cors());
 app.use(express.json()); //req.body
 app.use(express.static(__dirname + "/public"));
 
+return res.status(401).json({
+  success: false,
+  status: "Unsuccessful.",
+  err: error,
+});
+
 //Cors Configuration - Start
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -108,5 +114,3 @@ app.delete("/delivery/:id", async (req, res) => {
 app.listen(process.env.PORT || 5000, () => {
   console.log("server has started on port 5000");
 });
-
-
