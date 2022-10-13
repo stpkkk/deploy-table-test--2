@@ -105,6 +105,6 @@ app.delete("/delivery/:id", async (req, res) => {
 });
 
 app.use(cors());
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT, () => {
   console.log("server has started on port 5000");
 });
