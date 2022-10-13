@@ -1,20 +1,14 @@
 //https://www.youtube.com/watch?v=ldYcgPKEZC8&t=76s How create a server
-const express = require("express");
+const express = require("express"); //creating a server
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
-const path = require("path");
-const PORT = process.env.PORT || 5000;
 
 //middleware
 app.use(cors());
-app.use(express.json()); // => allows us to access the req.body
+app.use(express.json()); //req.body
+app.use(express.static(__dirname + "/public"));
 
-if (process.env.NODE_ENV === "production") {
-  //server static content
-  //npm run build
-  app.use(express.static(path.join(__dirname, "client/build")));
-}
 
 //Cors Configuration - Start
 app.use((req, res, next) => {
@@ -113,14 +107,6 @@ app.delete("/delivery/:id", async (req, res) => {
   }
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build/index.html"));
+app.listen(process.env.PORT || 5000, () => {
+  console.log("server has started on port 5000");
 });
-
-app.listen(PORT, () => {
-  console.log(`Server is starting on port ${PORT}`);
-});
-
-// app.listen(process.env.PORT || 5000, () => {
-//   console.log("server has started on port 5000");
-// });
