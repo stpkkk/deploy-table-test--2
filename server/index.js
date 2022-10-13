@@ -8,13 +8,7 @@ const pool = require("./db");
 app.use(cors());
 app.use(express.json()); //req.body
 app.use(express.static(__dirname + "/public"));
-app.use(function (req, res, next) {
-  res.setHeader(
-    "Content-Security-Policy-Report-Only",
-    "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; frame-src 'self'"
-  );
-  next();
-});
+
 
 //Cors Configuration - Start
 app.use((req, res, next) => {
