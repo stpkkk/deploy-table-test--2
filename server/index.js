@@ -9,11 +9,13 @@ app.use(cors());
 app.use(express.json()); //req.body
 app.use(express.static(__dirname + "/public"));
 
-return res.status(401).json({
-  success: false,
-  status: "Unsuccessful.",
-  err: error,
-});
+res.statusCode = 401
+res.setHeader("Content-Type", "application/json")
+res.json({
+    success: false,
+    status: "Login Unsuccessful.",
+    err: error,
+   })
 
 //Cors Configuration - Start
 app.use((req, res, next) => {
